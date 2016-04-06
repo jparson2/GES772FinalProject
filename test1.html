@@ -27,7 +27,14 @@ L.control.layers({
     'Family Cares': L.mapbox.tileLayer(''),
 	'Hospital':L.mapbox.tileLayer('')
 }).addTo(map);
+
+var featureLayer = L.mapbox.featureLayer()
+    .addTo(map);
+
+featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/Maryland_Hospitals_Hospitals.geojson');
 </script>
+
+   
 
 
 </body>
