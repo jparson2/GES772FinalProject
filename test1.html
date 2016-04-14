@@ -31,7 +31,10 @@ L.control.layers({
 var featureLayer = L.mapbox.featureLayer()
     .addTo(map);
 
-featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/Maryland_Hospitals_Hospitals.geojson');
+//featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/Maryland_Hospitals_Hospitals.geojson');
+
+//Add merged geojson of all healthcare facilities:
+featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/All_HealthCare_Facilities.geojson?_sm_au_=iVVrVWSnWrRP5JD8');
 </script>
 
    
