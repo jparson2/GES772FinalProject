@@ -1,0 +1,24 @@
+1. Access/publish data via web service (amazon) - SUZEE
+
+2. Implement faceted search with mouse event
+
+	-FACETS
+		-Hide markers/Layer control (toggle layers) - XUN
+		-filter based on attributes
+		
+		
+	-MOUSE EVENTS
+		-Click = zoom to layer or alert or just click map for latlon - SAMEER
+		-Hover = highlight, window with attribytes
+			L.control
+			info.update
+		
+	
+3. Change marker symbology (3 different facilities and transport.)	
+
+JUST A MAYBE:
+
+-filter by proximity to transportaion
+-maybe add user input address, and route between metro/bus stops
+-Add county boundary to map
+-facet filter by zip code 
