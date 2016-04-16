@@ -9,6 +9,10 @@
 		
 	-MOUSE EVENTS
 		-Click = zoom to layer or alert or just click map for latlon - SAMEER
+			Clicking a space on map brings up a pop-up w/ lat-long coordinates:		
+				map.on('click', function(e) {
+    				alert(e.latlng);
+				});
 		-Hover = highlight, window with attribytes
 			L.control
 			info.update
