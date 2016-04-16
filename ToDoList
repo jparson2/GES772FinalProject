@@ -1,24 +1,29 @@
-1. Access/publish data via web service (amazon) - SUZEE
+1. Access/publish data via web service (amazon) - SUZEE- due  April 23
 
 2. Implement faceted search with mouse event
 
 	-FACETS
-		-Hide markers/Layer control (toggle layers) - XUN
-		-filter based on attributes
+		-Hide markers/Layer control (toggle layers) - XUN- due  April 23
+		-filter based on attributes - TBD- due  April 30
 		
 		
 	-MOUSE EVENTS
-		-Click = zoom to layer or alert or just click map for latlon - SAMEER
-			Clicking a space on map brings up a pop-up w/ lat-long coordinates:		
-				map.on('click', function(e) {
-    				alert(e.latlng);
-				});
-		-Hover = highlight, window with attribytes
+		-Click = zoom to layer or alert or just click map for latlon - SAMEER - due  April 23
+		-Hover = highlight, window with attribytes - TBD- due  April 30
 			L.control
 			info.update
 		
 	
-3. Change marker symbology (3 different facilities and transport.)	
+3. Change marker symbology (3 different facilities and transport.)	- TBD - due  April 30
+ 
+
+5. Final Report - TBD -  THURSDAY MAY 5 (1 day before presentation materials are due)
+	-Update viewpoints - must show that we understand how to create the system with viewpoints
+	-Explain the services
+	-Explain the client 
+
+6. Final Presentation - ALL OF US SHOULD PRESENT - (powerpoint, google slide, or similar) - TBD -FRIDAY MAY 6 
+	
 
 JUST A MAYBE:
 
@@ -26,3 +31,5 @@ JUST A MAYBE:
 -maybe add user input address, and route between metro/bus stops
 -Add county boundary to map
 -facet filter by zip code 
+
+
