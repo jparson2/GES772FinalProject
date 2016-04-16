@@ -25,7 +25,9 @@ L.control.layers({
 }, {
     'Urgent Cares': L.mapbox.tileLayer(''),
     'Family Cares': L.mapbox.tileLayer(''),
-	'Hospital':L.mapbox.tileLayer('')
+	'Hospital': L.mapbox.tileLayer(''),
+  'Metro Stations': L.mapbox.featureLayer('MeteroStationLayer'),
+       'Bus Stops': L.mapbox.featureLayer('BusStopLayer')
 }).addTo(map);
 
 var featureLayer = L.mapbox.featureLayer()
@@ -35,6 +37,16 @@ var featureLayer = L.mapbox.featureLayer()
 
 //Add merged geojson of all healthcare facilities:
 featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/All_HealthCare_Facilities.geojson?_sm_au_=iVVrVWSnWrRP5JD8');
+
+var MeteroStationLayer = L.mapbox.featureLayer()
+    .addTo(map);
+MeteroStationLayer.loadURL('https://raw.githubusercontent.com/benbalter/dc-maps/master/maps/metro-stations-regional.geojson');
+
+var BusStopLayer = L.mapbox.featureLayer()
+    .addTo(map);
+BusStopLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProject/master/BusStop.geojson')
+
+
 </script>
 
    
