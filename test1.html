@@ -20,23 +20,14 @@
 L.mapbox.accessToken = 'pk.eyJ1Ijoid2VibWFzdGVydW5rbm93biIsImEiOiJLNHhvUTNZIn0.EkdAYVUg-8XdxpB3_NKdjQ';
 var map = L.mapbox.map('map').setView([39.143206,-77.188034], 11);
 
-L.control.layers({
-    'Base Map': L.mapbox.tileLayer('mapbox.streets').addTo(map)
-}, {
-    'Urgent Cares': L.mapbox.tileLayer(''),
-    'Family Cares': L.mapbox.tileLayer(''),
-	'Hospital': L.mapbox.tileLayer(''),
-  'Metro Stations': L.mapbox.featureLayer('MeteroStationLayer'),
-       'Bus Stops': L.mapbox.featureLayer('BusStopLayer')
-}).addTo(map);
 
-var featureLayer = L.mapbox.featureLayer()
+var HealthcareFacilitiesLayer = L.mapbox.featureLayer()
     .addTo(map);
 
 //featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/Maryland_Hospitals_Hospitals.geojson');
 
 //Add merged geojson of all healthcare facilities:
-featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/All_HealthCare_Facilities.geojson?_sm_au_=iVVrVWSnWrRP5JD8');
+HealthcareFacilitiesLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/All_HealthCare_Facilities.geojson?_sm_au_=iVVrVWSnWrRP5JD8');
 
 var MeteroStationLayer = L.mapbox.featureLayer()
     .addTo(map);
@@ -47,6 +38,15 @@ var BusStopLayer = L.mapbox.featureLayer()
 BusStopLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProject/master/BusStop.geojson')
 
 
+L.control.layers({
+    'Base Map': L.mapbox.tileLayer('mapbox.streets').addTo(map)
+}, {
+    'Healthcare Facilities': HealthcareFacilitiesLayer,
+	'Metro Stations': MeteroStationLayer,
+    'Bus Stops': BusStopLayer
+}).addTo(map);
+
+
 </script>
 
    
@@ -54,3 +54,4 @@ BusStopLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProje
 
 </body>
 </html>
+
