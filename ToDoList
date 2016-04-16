@@ -1,10 +1,10 @@
-1. Access/publish data via web service (amazon) - SUZEE- due  April 23
+1. Access/publish data via web service (amazon) - SUZEE & XUN- due  April 23
 
 2. Implement faceted search with mouse event
 
 	-FACETS
 		-Hide markers/Layer control (toggle layers) - XUN- due  April 23
-		-filter based on attributes - TBD- due  April 30
+		-filter based on attributes - SUZEE TRY THIS- due  April 30
 		
 		
 	-MOUSE EVENTS
@@ -14,7 +14,7 @@
 			info.update
 		
 	
-3. Change marker symbology (3 different facilities and transport.)	- TBD - due  April 30
+3. Change marker symbology (3 different facilities and transport.)	- XUN - due  April 30
  
 
 5. Final Report - TBD -  THURSDAY MAY 5 (1 day before presentation materials are due)
