@@ -20,9 +20,19 @@
 L.mapbox.accessToken = 'pk.eyJ1Ijoid2VibWFzdGVydW5rbm93biIsImEiOiJLNHhvUTNZIn0.EkdAYVUg-8XdxpB3_NKdjQ';
 var map = L.mapbox.map('map').setView([39.143206,-77.188034], 11);
 
-
+var MCBoundaryLayer = L.mapbox.featureLayer()
+	.addTo(map);
+	
+	MCBoundaryLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProject/branch1/Montgomery-County.geojson');
+	
+	
+	
 var HealthcareFacilitiesLayer = L.mapbox.featureLayer()
+//	setFilter(function(){return false;})
     .addTo(map);
+	
+// add marker color, symbol, and size to Healthcare GeoJSON
+//HealthcareFacilitiesLayer.loadID(mapbox.bus);
 
 //featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/Maryland_Hospitals_Hospitals.geojson');
 
@@ -38,9 +48,14 @@ var BusStopLayer = L.mapbox.featureLayer()
 BusStopLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProject/master/BusStop.geojson')
 
 
+
+
+
+
 L.control.layers({
     'Base Map': L.mapbox.tileLayer('mapbox.streets').addTo(map)
 }, {
+	'Montgomery-County': MCBoundaryLayer,
     'Healthcare Facilities': HealthcareFacilitiesLayer,
 	'Metro Stations': MeteroStationLayer,
     'Bus Stops': BusStopLayer
