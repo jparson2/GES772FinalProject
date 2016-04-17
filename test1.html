@@ -5,6 +5,7 @@
 <title>GES772 Final Project</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
@@ -18,15 +19,53 @@
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoid2VibWFzdGVydW5rbm93biIsImEiOiJLNHhvUTNZIn0.EkdAYVUg-8XdxpB3_NKdjQ';
-var map = L.mapbox.map('map').setView([39.143206,-77.188034], 11);
+var map = L.mapbox.map('map').setView([39.143206,-77.188034], 10);
 
 var MCBoundaryLayer = L.mapbox.featureLayer()
 	.addTo(map);
 	
 	MCBoundaryLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProject/branch1/Montgomery-County.geojson');
 	
-	
-	
+
+var geoJsonUrlHealth = "http://localhost:8080/geoserver/ges772/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ges772:All_HealthCare_Facilities&outputFormat=text/javascript&format_options=callback:processJSONHealth";
+
+var geoJsonUrlBus = "http://localhost:8080/geoserver/ges772/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ges772:BusStop&outputFormat=text/javascript&format_options=callback:processJSONBus&maxFeatures=1000";
+
+var geoJsonUrlMetro = "http://localhost:8080/geoserver/ges772/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ges772:metrostationsregional&outputFormat=text/javascript&format_options=callback:processJSONMetro"
+
+$.ajax(geoJsonUrlHealth,
+{ dataType: "jsonp" }
+).done(function ( data ) {
+});
+
+$.ajax(geoJsonUrlBus,
+{ dataType: "jsonp" }
+).done(function ( data ) {
+});
+
+$.ajax(geoJsonUrlMetro,
+{ dataType: "jsonp" }
+).done(function ( MeteroStationLayer ) {
+});
+
+function processJSONHealth(HealthcareFacilitiesLayer) {
+L.mapbox.featureLayer(HealthcareFacilitiesLayer)
+    .addTo(map);
+}
+
+function processJSONBus(BusStopLayer) {
+L.mapbox.featureLayer(BusStopLayer)
+    .addTo(map);
+}
+
+
+function processJSONMetro(MeteroStationLayer) {
+L.mapbox.featureLayer(MeteroStationLayer)
+    .addTo(map);
+}
+
+
+/*	
 var HealthcareFacilitiesLayer = L.mapbox.featureLayer()
 //	setFilter(function(){return false;})
     .addTo(map);
@@ -34,7 +73,6 @@ var HealthcareFacilitiesLayer = L.mapbox.featureLayer()
 // add marker color, symbol, and size to Healthcare GeoJSON
 //HealthcareFacilitiesLayer.loadID(mapbox.bus);
 
-//featureLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/Maryland_Hospitals_Hospitals.geojson');
 
 //Add merged geojson of all healthcare facilities:
 HealthcareFacilitiesLayer.loadURL('https://raw.githubusercontent.com/jparson2/GES772Final/master/All_HealthCare_Facilities.geojson?_sm_au_=iVVrVWSnWrRP5JD8');
@@ -46,20 +84,21 @@ MeteroStationLayer.loadURL('https://raw.githubusercontent.com/benbalter/dc-maps/
 var BusStopLayer = L.mapbox.featureLayer()
     .addTo(map);
 BusStopLayer.loadURL('https://raw.githubusercontent.com/XunHu57/GES772FinalProject/master/BusStop.geojson')
+*/
 
 
 
-
-
-
+		
 L.control.layers({
     'Base Map': L.mapbox.tileLayer('mapbox.streets').addTo(map)
 }, {
 	'Montgomery-County': MCBoundaryLayer,
-    'Healthcare Facilities': HealthcareFacilitiesLayer,
-	'Metro Stations': MeteroStationLayer,
-    'Bus Stops': BusStopLayer
+    //'Healthcare Facilities': HealthcareFacilitiesLayer,
+	//'Metro Stations': MeteroStationLayer,
+   //'Bus Stops': BusStopLayer
+   
 }).addTo(map);
+
 
 
 </script>
@@ -69,4 +108,3 @@ L.control.layers({
 
 </body>
 </html>
-
